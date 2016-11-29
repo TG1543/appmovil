@@ -1,0 +1,18 @@
+<ion-view view-title="Equipos disponibles">
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()">></ion-refresher>
+    <div class="list card">
+      <div class="item">
+        <h3>Dispositivos</h3>
+        <h4>Selecciona el equipo a agregar</h4>
+        <h5>El dispositivo debe ser emparejado previamente.</h5>
+      </div>
+      <div class="item item-body">
+        <ion-list>
+          <ion-item ng-repeat="device in devices"
+                 ng-click="add(device)" class="item-text-wrap"><p>{{device.name}} - {{device.address}}</p></ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<ion-view view-title="Experimentos asignados">
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()">></ion-refresher>
+    <div class="list card">
+        <ion-list>
+          <ion-item ng-repeat="experiment in experiments" href="#/app/experiments/{{experiment.id}}">
+            <label class="item-text-wrap">
+            <i class="icon ion-checkmark-circled" ng-show="experiment.state_id == 3"></i>
+            <i class="icon ion-close-circled" ng-show="experiment.state_id == 2"></i>
+             {{experiment.description}}
+            </label>
+          </ion-item>
+        </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="Iteración">
+    <ion-content>
+    <ion-refresher on-refresh="doRefresh()">></ion-refresher>
+    <div class="list card">
+       <div class="item item-divider">
+           Comentarios
+        </div>
+        <ul class="list">
+           <li class="item item-text-wrap" ng-hide="!iterationData.equipment">
+                <label ng-hide="!iterationData.equipment">Equipo asignado: {{iterationData.equipment.name}} - {{iterationData.equipment.serial_number}}</label>
+            </li>
+            <li class="item item-text-wrap" ng-repeat="binnacle in iterationData.binnacles">
+                <label>{{binnacle.created_at.split("T")[0]}} - {{binnacle.comment}}</label>
+            </li>
+        </ul>
+       <div class="item tabs tabs-secondary tabs-icon-left" >
+        <a class="tab-item" ng-click="addComment()">
+          <i class="icon ion-chatbox"></i>
+          Añadir Comentario
+        </a>
+        <a class="tab-item" ng-click="openForm()">
+          <i class="icon ion-edit"></i>
+          Editar Parametros
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="assignEquipment()" ng-hide='iterationData.equipment'>
+          <i class="icon ion-bluetooth"></i>
+          Asignar equipo
+        </a>
+        <a class="tab-item" ng-click="unassignEquipment()" ng-hide='!iterationData.equipment'>
+          <i class="icon ion-bluetooth"></i>
+          Desasignar equipo
+        </a>
+        <a class="tab-item" ng-click="setupEquipment()">
+          <i class="icon ion-android-settings"></i>Configurar equipo
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="">
+          <i class="icon  ion-eye"></i>
+            Ver gráficas
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left" >
+          <a class="tab-item" ng-click="cancel()">
+          <i class="icon ion-close"></i>
+          Cancelar
+            </a>
+         <a class="tab-item" ng-click="finish()">
+          <i class="icon ion-checkmark"></i>
+          Finalizar
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

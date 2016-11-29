@@ -1,0 +1,21 @@
+<ion-view view-title="Parámetros">
+  <ion-header-bar>
+    <h1 class="title">Parámetros</h1>
+  </ion-header-bar>
+  <ion-content >
+    <form ng-submit="sendForm()">
+      <div class="list">
+        <label class="item item-input" ng-repeat="parameter in parameters">
+          <span class="input-label">{{parameter.name}}: </span>
+          <input type="number" ng-model="parameter.quantity" required>
+        </label>
+     
+        <label class="item">
+            <button class="button button-block button-positive" type="submit">Actualizar</button>
+        </label>
+      </div>
+    </form>
+    
+    <button class="button button-block button-alert" ng-click="closeForm()">Volver</button>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view view-title="Proyecto">
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()">></ion-refresher>
+    <div class="list card">
+      <div class="item item-text-wrap">
+        <h3>{{projectData.name}}</h3>
+      </div>
+      <div class="item item-body item-text-wrap">
+        <p>{{projectData.description}}</p>
+        <ion-list>
+          <ion-item ng-repeat="experiment in projectData.experiments" href="#/app/experiments/{{experiment.id}}">
+            <label class="item-text-wrap">
+            <i class="icon ion-checkmark-circled" ng-show="experiment.state_id == 3"></i>
+            <i class="icon ion-close-circled" ng-show="experiment.state_id == 2"></i>
+             {{experiment.description}}
+            </label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left" ng-show="projectData.state_id == 1">
+         <a class="tab-item" ng-click="openFormCreateExperiment(projectData.id)">
+          <i class="icon ion-plus"></i>
+          Experimento
+        </a>
+        <a class="tab-item" ng-click="openForm()">
+          <i class="icon ion-edit"></i>
+          Editar
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left" ng-show="projectData.state_id == 1">
+        <a class="tab-item" ng-click="cancel()">
+          <i class="icon ion-close"></i>
+          Cancelar
+        </a>
+         <a class="tab-item" ng-click="finish()">
+          <i class="icon ion-checkmark"></i>
+          Finalizar
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

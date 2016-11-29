@@ -1,0 +1,26 @@
+<ion-view view-title="Equipos">
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()">></ion-refresher>
+    <div class="list">
+        <div class="item item-divider">
+           Nombre - MAC
+        </div>
+         
+        <div class="item item-button-right" ng-repeat="equipment in equipments" >
+            <div ng-click="openForm({{equipment.id}})">{{equipment.name}} - {{equipment.serial_number}}</div>
+            <button class="button button-positive" ng-click="toogle_state({{equipment.id}})" >
+                <i class="icon ion-close"  ng-hide="{{equipment.active}}"></i>
+                <i class="icon ion-checkmark" ng-hide="{{!equipment.active}}"></i>
+            </button>
+        </div>
+        
+
+        <div class="item tabs tabs-secondary tabs-icon-left" ng-show="true">
+            <a class="tab-item" href="#/app/bluetooth">
+                <i class="icon ion-plus-round"></i>
+                Equipo
+            </a>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,22 @@
+<ion-view view-title="Crear nuevo experimento">
+  <ion-header-bar>
+    <h1 class="title">Investigador</h1>
+  </ion-header-bar>
+  <ion-content >
+    <form ng-submit="sendForm()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Investigador</span>
+          <select ng-model="researcherData.user_id"  required >
+            <option ng-repeat="user in users" ng-selected="{{researcherData.user_id==user.id}}" value="{{user.id}}">{{user.name}}</option>
+          </select>
+        </label>     
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Enviar</button>
+        </label>
+      </div>
+    </form>
+    
+    <button class="button button-block button-alert" ng-click="closeForm()">Volver</button>
+  </ion-content>
+</ion-view>

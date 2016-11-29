@@ -1,0 +1,7 @@
+ <ion-view view-title="Gráficas">
+      <ion-content >
+        <div ng-repeat="chart in v1 track by $index">
+          <div google-chart chart="{{chart}}" class="chart-container"></div>
+        </div>
+      </ion-content>
+</ion-view>

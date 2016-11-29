@@ -1,0 +1,49 @@
+<ion-view view-title="Experimento">
+    
+    <ion-content>
+    <ion-refresher on-refresh="doRefresh()">></ion-refresher>
+    <div class="list card">
+      <div class="item item-text-wrap">
+        <h2><b>{{experimentData.description}}</b></h2>
+      </div>
+     <div class="list">
+        <div class="item">Iteraciones</div>
+        <a ng-repeat="iteration in experimentData.iterations" class="item item-avatar" href="#/app/iterations/{{iteration.id}}">
+            <p><b>Estado:</b> 
+                <i class="icon ion-alert" ng-show="iteration.state_id == 1"> Creada</i>
+                <i class="icon ion-checkmark-circled" ng-show="iteration.state_id == 3">Finalizado</i>
+                <i class="icon ion-close-circled" ng-show="iteration.state_id == 2">Cancelado</i>
+            </p>
+            <p><b>Inicia:</b>  {{iteration.started_at}}</p>
+            <p><b>Finaliza:</b>  {{iteration.ended_at}}</p>
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left" ng-show="true">
+        <a class="tab-item" ng-click="addIteration()">
+          <i class="icon ion-plus"></i>
+          Iteración
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left" ng-show="true">
+        <a class="tab-item" href="#/app/researchers/{{experimentData.id}}">
+          <i class="icon ion-person"></i>
+          Investigadores
+        </a>
+        <a class="tab-item" ng-click="openForm()">
+          <i class="icon ion-edit"></i>
+          Editar
+        </a>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left" ng-show="true">
+        <a class="tab-item" ng-click="cancel()">
+          <i class="icon ion-close"></i>
+          Cancelar
+        </a>
+         <a class="tab-item" ng-click="showPop()">
+          <i class="icon ion-checkmark"></i>
+          Finalizar
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
